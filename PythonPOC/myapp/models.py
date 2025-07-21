@@ -17,6 +17,9 @@ class CustomUserManager(BaseUserManager):
         return user
     
 class CustomUser(AbstractBaseUser):
+    class Meta:
+        db_table = 'users'
+        
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=128)
